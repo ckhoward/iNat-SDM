@@ -16,12 +16,12 @@ def get_data(filename):
 		reader = csv.DictReader(csvfile)
 		data_keys=data_dict.keys()
 		for row in reader:
-			if row['taxonID'] not in data_keys:
+			if row['taxonID'] not in data_keys and row['datasetName'] == 'iNaturalist research-grade observations':
 				data_dict[row['taxonID']]= {}
 				data_dict[row['taxonID']]['date'] = [row['eventDate']] 
 				data_dict[row['taxonID']]['latitude'] = [row['decimalLatitude']]
 				data_dict[row['taxonID']]['longitude'] = [row['decimalLongitude']]
-			else:	
+			elif row['datasetName'] == 'iNaturalist research-grade observations':	
 				data_dict[row['taxonID']]['date'].append(row['eventDate'])
 				data_dict[row['taxonID']]['latitude'].append(row['decimalLatitude'])
 				data_dict[row['taxonID']]['longitude'].append(row['decimalLongitude'])
