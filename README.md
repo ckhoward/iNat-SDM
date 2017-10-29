@@ -1,4 +1,4 @@
-# Homework12-iNaturalist
+# iNaturalist SDM 
 
 System Requirements:
     Python 3.6
