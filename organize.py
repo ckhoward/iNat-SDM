@@ -114,7 +114,7 @@ with open('data_for_sdm.csv','w') as csv_file:
 
 #print(taxonID)
 print('data_for_sdm.csv created successfully. This is useful for visualizing the data in a clean excel form')
-print('Beginning file creation for Taxon ID per month')
+print('Beginning file creation for each Taxon ID for each month')
 '''
 making files for each taxonid for each month and all years
 '''
