@@ -1,4 +1,5 @@
 import datetime
+import Observation_Getter
 
 def calculate_datetime_difference(past, requested_day=""):
     """
@@ -58,16 +59,44 @@ def calculate_datetime_difference(past, requested_day=""):
             
     return date_dict
     
-
+def parse_tax_file(fname):
+    """
+    Parses the tax file to build a dictionary with the taxonomy ID 
+    This is an extremely hardcoded function and should not be used normally
+    
+    params:
+        fname: a string representing a file name
+    
+    returns: a dictionary with the taxonomy id mapped to the species name                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+    
+    """
+    
+    tax_spec = {}
+    with open(fname, 'r') as ptr:
+        
+        for line in ptr:
+            lst = line.split()
+            tax_spec[lst[0]] = ' '.join(lst[1:])
+            
+    return tax_spec
+        
 
 def main():
     day = ''
     month = ''
     year = ''
     calls_min = ''
+    fname = ''
+    
+    id_species = parse_tax_file(fname)
     
     
-    print(calculate_datetime_difference('10 11 2015', '10 11 2016'))
+    
+    for i in id_species:
+        
+        current = obs_grabber(
+    
+    
     
     
 
