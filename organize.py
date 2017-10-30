@@ -81,7 +81,7 @@ def get_data(filename):
 get_data('observations.csv')
 #id, year, month, lat/long
 '''
-Writing data in format needed to new CSV
+Writing data in format needed to new txt file to accommodate R SDM input requirements
 '''
 with open('data_for_sdm.txt','w') as csv_file:
 	csvwriter = csv.writer(csv_file, delimiter=',')
@@ -91,6 +91,20 @@ with open('data_for_sdm.txt','w') as csv_file:
 			for month in data_dict[id][year]:
 				for coords in data_dict[id][year][month]:
 					csvwriter.writerow([id,year, month,coords[0], coords[-1]])
+
+'''
+Writing data in format needed to new CSV file for easier user viewing
+'''
+with open('data_for_sdm.csv','w') as csv_file:
+	csvwriter = csv.writer(csv_file, delimiter=',')
+	csvwriter.writerow(['TaxonId','Year','Month','Latitude','Longitude'])
+	for id in data_dict:
+		for year in data_dict[id]:
+			for month in data_dict[id][year]:
+				for coords in data_dict[id][year][month]:
+					csvwriter.writerow([id,year, month,coords[0], coords[-1]])
+
+
 
 
 	
