@@ -10,5 +10,9 @@ System Requirements:
             "Our export system is a bit flawed, though: if you alter the filters to get more than 10,000 records
             it may start omitting data, so the above techniques would probably be better. Plus, if you use GBIF, 
             your students can benefit from even more records from museums and such."
+            
+Place organize.py and taxon_id.txt in the same directory as observations.csv. organize.py takes observations.csv, cleans the data, and outputs a user-friendly CSV, as well as the required text files to be used by the SDM, in a format of [taxonid-month-iNaturalist]. To run organize.py, open shell in the directory as the two folders and type <python organize.py>.
 
-2. Download/clone github repository same folder as above, 
+2. Place the Jupyter Notebook file (inat_request.ipynb) in the directory containing the R scripts. This notebook runs the input text files through the SDM and generates sets of raster and image files that correspond to the file: for every taxon id, there is a set for each month (12 in total), and a set for all observations.
+
+3. Download/clone github repository same folder as above, 
