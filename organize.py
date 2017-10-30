@@ -20,7 +20,7 @@ def get_data(filename):
 			if row['taxonID'] not in data_keys and row['datasetName'] == 'iNaturalist research-grade observations':
 				data_dict[row['taxonID']]= {}				
 				'''
-				organizing dictionary input into format {{year}, {month}, [lat, long]}
+				organizing dictionary input into format {{taxonID}, {year}, {month}, [lat, long]}
 				'''
 				if row['eventDate'][4]=='-':
 					data_dict[row['taxonID']][row['eventDate'][0:4]]={}
