@@ -73,6 +73,7 @@ def parse_tax_file(fname):
     
     tax_spec = {}
     with open(fname, 'r') as ptr:
+        ptr.readline() #skip the header line
         
         for line in ptr:
             lst = line.split()
@@ -82,21 +83,27 @@ def parse_tax_file(fname):
         
 
 def main():
-    day = ''
-    month = ''
-    year = ''
-    calls_min = ''
+    date1 = ''
+    date2 = ''
+    
+    calls_delta = 0
     fname = ''
     
     id_species = parse_tax_file(fname)
     
+    lst_dates = calculate_datetime_difference(date1, date2)
     
+    lst_all_taxon_obs = []
     
-    for i in id_species:
+    for taxon_id in id_species:
         
-        current = obs_grabber(
+        current = obs_grabber(calls_delta, id_species[taxon_id])
+        
+        for date in lst_dates:
+            lst.append(current.get_all_obs_for_id(taxon_id, date['month'], date['year']))
+        
     
-    
+    print(lst_all_taxon_obs)
     
     
 

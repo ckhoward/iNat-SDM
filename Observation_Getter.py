@@ -39,21 +39,26 @@ class obs_grabber:
         for i in data:
             specific_obs = i
         
-        d = {}
-        d["species name"] = self.species_name
-        d["year"] = specific_obs['observed_on_details']['year']
-        d["month"] = specific_obs['observed_on_details']['month']
-        d['lat'] = specific_obs['geojson']['coordinates'][1]
-        d['long'] = specific_obs['geojson']['coordinates'][0]
+            d = {}
+            d["species name"] = self.species_name
+            d["year"] = specific_obs['observed_on_details']['year']
+            d["month"] = specific_obs['observed_on_details']['month']
+            d['lat'] = specific_obs['geojson']['coordinates'][1]
+            d['long'] = specific_obs['geojson']['coordinates'][0]
+            d['common name'] = specific_obs['taxon']['preferred common name']
         
-        obs_lst.append(d)
+            obs_lst.append(d)
 
     
         return obs_lst
     
         
     def get_count_one_month(id_no_lst, month, year):
+        '''
+        This will count the number of observations in a particular query.
+        Generally should be unused.
         
+        '''
         count = 0
         for i in id_no_lst:
             count += int(get_observation(i, month, year)['total_results'])
@@ -72,7 +77,8 @@ class obs_grabber:
                 year: a string year number 0000-9999 (but should realistically be 1990-20XX. 
                 
            returns:
-               a dictionary with the information mapped to the associated keyword
+               a dictionary with the id mapped to a list of dictionaries containing the information mapped to the
+               associated keyword
         '''
         
         base_url = "http://api.inaturalist.org/v1/observations?"
