@@ -86,7 +86,7 @@ Writing data in format needed to new TXT file for SDM format
 '''
 with open('data_for_sdm.txt','w') as csv_file:
 	csvwriter = csv.writer(csv_file, delimiter=',')
-	csvwriter.writerow(['taxonId','year','month','latitude','longitude'])
+	csvwriter.writerow(['TaxonId','Year','Month','Latitude','Longitude'])
 	for id in data_dict:
 		for year in data_dict[id]:
 			for month in data_dict[id][year]:
@@ -99,7 +99,7 @@ Writing data in format needed to new CSV file for easier user viewing
 '''
 with open('data_for_sdm.csv','w') as csv_file:
 	csvwriter = csv.writer(csv_file, delimiter=',')
-	csvwriter.writerow(['taxonId','year','month','latitude','longitude'])
+	csvwriter.writerow(['TaxonId','Year','Month','Latitude','Longitude'])
 	for id in data_dict:
 		for year in data_dict[id]:
 			for month in data_dict[id][year]:
@@ -116,7 +116,7 @@ for each in taxonID:
 			filename= str(each + month + '.txt')
 			with open(filename,'w') as csv_file:
 				csvwriter = csv.writer(csv_file, delimiter=',')
-				csvwriter.writerow(['taxonId','year','month','latitude','longitude'])
+				csvwriter.writerow(['TaxonId','Year','Month','Latitude','Longitude'])
 				for id in data_dict:
 					if id == each:
 						if month == 'all':
@@ -127,8 +127,9 @@ for each in taxonID:
 						if month != 'all':
 							for year in data_dict[id]:
 								for months in data_dict[id][year]:
-									for coords in data_dict[id][year][month]:
-										csvwriter.writerow([id,year, month,coords[0], coords[-1]])
+									if month == months:
+										for coords in data_dict[id][year][month]:
+											csvwriter.writerow([id,year, month,coords[0], coords[-1]])
 
 		
 		
