@@ -72,5 +72,4 @@ def get_data(filename):
 		
 			
 get_data('observations.csv')
-print(data_dict['27818'])
-				
+display(data_dict['27818'])				
