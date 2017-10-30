@@ -1,16 +1,18 @@
 import csv
 taxon_dict={}
+year_keys=[]
+taxonID=[]
+
 def get_organized(file):
 	file=open(file, 'r')
 	for line in file:
 		line=line.split()
-		taxon_dict[line[0]]=' '.join(line[1:])
-		#print(taxon_dict[line[0]])
+		names = ' '.join(line[1:])
+		taxon_dict[line[0]]=names
+		taxonID.append(line[0])
 	file.close()
-	return taxon_dict
-		
+	return (taxon_dict, taxonID)
 hello = get_organized('taxon_list.txt')
-#print(taxon_dict)
 data_dict={}
 def get_data(filename):
 	with open(filename,  encoding='utf8') as csvfile:
@@ -20,7 +22,7 @@ def get_data(filename):
 			if row['taxonID'] not in data_keys and row['datasetName'] == 'iNaturalist research-grade observations':
 				data_dict[row['taxonID']]= {}				
 				'''
-				organizing dictionary input into format {{taxonID}, {year}, {month}, [lat, long]}
+				organizing dictionary input into format {{year}, {month}, [lat, long]}
 				'''
 				if row['eventDate'][4]=='-':
 					data_dict[row['taxonID']][row['eventDate'][0:4]]={}
@@ -40,7 +42,6 @@ def get_data(filename):
 					
 					#format is Latitude, longitude
 					data_dict[row['taxonID']][row['eventDate'][0:4]][row['eventDate'][5:7]].append([row['decimalLatitude'],row['decimalLongitude']])
-					#print(data_dict[row['taxonID']][row['eventDate'][0:4]])
 					
 					
 			elif row['datasetName'] == 'iNaturalist research-grade observations':	
@@ -50,6 +51,7 @@ def get_data(filename):
 				if len(row['eventDate'])>0 and row['eventDate'][4]=='-':
 					year_key = data_dict[row['taxonID']].keys()
 					if row['eventDate'][0:4]not in year_key:
+						year_keys.append([row['eventDate'][0:4]])
 						data_dict[row['taxonID']][row['eventDate'][0:4]]={}
 						data_dict[row['taxonID']][row['eventDate'][0:4]]['01']=[]
 						data_dict[row['taxonID']][row['eventDate'][0:4]]['02']=[]
@@ -68,8 +70,27 @@ def get_data(filename):
 					else:
 						data_dict[row['taxonID']][row['eventDate'][0:4]][row['eventDate'][5:7]].append([row['decimalLatitude'],row['decimalLongitude']])
 				
-						#print(row['taxonID'])
-		
+
 			
 get_data('observations.csv')
-display(data_dict['27818'])				
+#id, year, month, lat/long
+'''
+Writing data in format needed to new CSV
+'''
+with open('data_for_sdm.csv','w') as csv_file:
+	csvwriter = csv.writer(csv_file, delimiter=',')
+	csvwriter.writerow(['TaxonId','Year','Month','Latitude','Longitude'])
+	for id in data_dict:
+		for year in data_dict[id]:
+			for month in data_dict[id][year]:
+				for coords in data_dict[id][year][month]:
+					csvwriter.writerow([id,year, month,coords[0], coords[-1]])
+
+
+	
+	
+
+
+		
+		
+	
