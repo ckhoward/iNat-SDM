@@ -113,7 +113,7 @@ making files for each taxonid for each month and all years
 for each in taxonID:
 	if each!= 'taxonID':
 		for month in month_list:
-			filename= str(each + month + '.txt')
+			filename = str(each + '-' + month + '-iNaturalist.txt')
 			with open(filename,'w') as csv_file:
 				csvwriter = csv.writer(csv_file, delimiter=',')
 				csvwriter.writerow(['TaxonId','Year','Month','Latitude','Longitude'])
