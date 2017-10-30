@@ -2,6 +2,7 @@ import csv
 taxon_dict={}
 year_keys=[]
 taxonID=[]
+month_list=['01','02','03','04','05','06','07','08','09','10','11','12','all']
 
 def get_organized(file):
 	file=open(file, 'r')
@@ -65,7 +66,6 @@ def get_data(filename):
 						data_dict[row['taxonID']][row['eventDate'][0:4]]['10']=[]
 						data_dict[row['taxonID']][row['eventDate'][0:4]]['11']=[]
 						data_dict[row['taxonID']][row['eventDate'][0:4]]['12']=[]
-						data_dict[row['taxonID']][row['eventDate'][0:4]][row['eventDate'][5:7]].append([row['decimalLatitude'],row['decimalLongitude']])
 						'''
 						Checking that entries have Lat/long coords
 						'''
@@ -74,6 +74,7 @@ def get_data(filename):
 
 					else:
 						if len(row['decimalLatitude']) > 4 or len(row['decimalLongitude']) > 4:
+
 							data_dict[row['taxonID']][row['eventDate'][0:4]][row['eventDate'][5:7]].append([row['decimalLatitude'],row['decimalLongitude']])
 				
 
@@ -81,18 +82,19 @@ def get_data(filename):
 get_data('observations.csv')
 #id, year, month, lat/long
 '''
-Writing data in format needed to new txt file to accommodate R SDM input requirements
+Writing data in format needed to new TXT file for SDM format
 '''
 with open('data_for_sdm.txt','w') as csv_file:
 	csvwriter = csv.writer(csv_file, delimiter=',')
-	csvwriter.writerow(['taxonId','year','month','latitude','longitude'])
+	csvwriter.writerow(['TaxonId','Year','Month','Latitude','Longitude'])
 	for id in data_dict:
 		for year in data_dict[id]:
 			for month in data_dict[id][year]:
 				for coords in data_dict[id][year][month]:
 					csvwriter.writerow([id,year, month,coords[0], coords[-1]])
 
-'''
+					
+'''					
 Writing data in format needed to new CSV file for easier user viewing
 '''
 with open('data_for_sdm.csv','w') as csv_file:
@@ -104,12 +106,29 @@ with open('data_for_sdm.csv','w') as csv_file:
 				for coords in data_dict[id][year][month]:
 					csvwriter.writerow([id,year, month,coords[0], coords[-1]])
 
-
-
-
-	
-	
-
+#print(taxonID)
+'''
+making files for each taxonid for each month and all years
+'''
+for each in taxonID:
+	if each!= 'taxonID':
+		for month in month_list:
+			filename= str(each + month + '.txt')
+			with open(filename,'w') as csv_file:
+				csvwriter = csv.writer(csv_file, delimiter=',')
+				csvwriter.writerow(['TaxonId','Year','Month','Latitude','Longitude'])
+				for id in data_dict:
+					if id == each:
+						if month == 'all':
+							for year in data_dict[id]:
+								for months in data_dict[id][year]:
+									for coords in data_dict[id][year][months]:
+										csvwriter.writerow([id,year, months,coords[0], coords[-1]])
+						if month != 'all':
+							for year in data_dict[id]:
+								for months in data_dict[id][year]:
+									for coords in data_dict[id][year][month]:
+										csvwriter.writerow([id,year, month,coords[0], coords[-1]])
 
 		
 		
