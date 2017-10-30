@@ -85,7 +85,7 @@ Writing data in format needed to new CSV
 '''
 with open('data_for_sdm.csv','w') as csv_file:
 	csvwriter = csv.writer(csv_file, delimiter=',')
-	csvwriter.writerow(['TaxonId','Year','Month','Latitude','Longitude'])
+	csvwriter.writerow(['taxonId','year','month','latitude','longitude'])
 	for id in data_dict:
 		for year in data_dict[id]:
 			for month in data_dict[id][year]:
