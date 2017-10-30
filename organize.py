@@ -80,6 +80,7 @@ def get_data(filename):
 
 			
 get_data('observations.csv')
+print('Processing Complete, beginning file creation')
 #id, year, month, lat/long
 '''
 Writing data in format needed to new TXT file for SDM format
@@ -96,6 +97,7 @@ with open('data_for_sdm.txt','w') as csv_file:
 					csvwriter.writerow([id,year, month,coords[0], coords[-1]])
 
 					
+print('data_for_sdm.txt created successfully')
 '''					
 Writing data in format needed to new CSV file for easier user viewing
 '''
@@ -111,6 +113,8 @@ with open('data_for_sdm.csv','w') as csv_file:
 					csvwriter.writerow([id,year, month,coords[0], coords[-1]])
 
 #print(taxonID)
+print('data_for_sdm.csv created successfully. This is useful for visualizing the data in a clean excel form')
+print('Beginning file creation for Taxon ID per month')
 '''
 making files for each taxonid for each month and all years
 '''
@@ -137,4 +141,5 @@ for each in taxonID:
 
 		
 		
-	
+print('File creation complete')
+
