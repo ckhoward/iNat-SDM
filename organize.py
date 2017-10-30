@@ -66,9 +66,15 @@ def get_data(filename):
 						data_dict[row['taxonID']][row['eventDate'][0:4]]['11']=[]
 						data_dict[row['taxonID']][row['eventDate'][0:4]]['12']=[]
 						data_dict[row['taxonID']][row['eventDate'][0:4]][row['eventDate'][5:7]].append([row['decimalLatitude'],row['decimalLongitude']])
+						'''
+						Checking that entries have Lat/long coords
+						'''
+						if len(row['decimalLatitude']) > 4 or len(row['decimalLongitude']) > 4:
+							data_dict[row['taxonID']][row['eventDate'][0:4]][row['eventDate'][5:7]].append([row['decimalLatitude'],row['decimalLongitude']])
 
 					else:
-						data_dict[row['taxonID']][row['eventDate'][0:4]][row['eventDate'][5:7]].append([row['decimalLatitude'],row['decimalLongitude']])
+						if len(row['decimalLatitude']) > 4 or len(row['decimalLongitude']) > 4:
+							data_dict[row['taxonID']][row['eventDate'][0:4]][row['eventDate'][5:7]].append([row['decimalLatitude'],row['decimalLongitude']])
 				
 
 			
