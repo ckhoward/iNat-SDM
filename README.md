@@ -15,4 +15,11 @@ Place organize.py and taxon_id.txt in the same directory as observations.csv. or
 
 2. Place the Jupyter Notebook file (inat_request.ipynb) in the directory containing the R scripts. This notebook runs the input text files through the SDM and generates sets of raster and image files that correspond to the file: for every taxon id, there is a set for each month (12 in total), and a set for all observations.
 
-3. Download/clone github repository same folder as above, 
+
+
+
+
+# Approxamite run times on laptop/desktop:
+Approxamite run time for organization.py to clean and organize/write needed files for the SDM : ~5minutes
+Approxamite run time for SDM/R Script to fully run 5 Taxon ID's and recieve Raster Images: ~3minutes
+Estimated run time for SDM/R Script to fully run all 760-780 Taxon ID's and recieve Raster Images: ~6.5hours
