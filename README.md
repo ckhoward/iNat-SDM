@@ -19,9 +19,9 @@ Place organize.py and taxon_id.txt in the same directory as observations.csv. or
 
 
 
-# Approxamite run times on laptop/desktop:
-Approxamite run time for organization.py to clean and organize/write needed files for the SDM : ~5minutes
+# Approximate run times on laptop/desktop:
+Approximate run time for organization.py to clean and organize/write needed files for the SDM : ~5minutes
 
-Approxamite run time for SDM/R Script to fully run 5 Taxon ID's and recieve Raster Images: ~3minutes
+Approximate run time for SDM/R Script to fully run 5 Taxon ID's and recieve Raster Images: ~3minutes
 
 Estimated run time for SDM/R Script to fully run all 760-780 Taxon ID's and recieve Raster Images: ~6.5hours
