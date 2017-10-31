@@ -143,3 +143,17 @@ for each in taxonID:
 		
 print('File creation complete')
 
+
+'''
+The below can be used to update the list of taxonID's in the 
+sdm R script by replaceing the list there with the printed output 
+of the below function
+
+check = []
+for each in taxonID:
+	word = str('"' + each + '" ' )
+	check.append(word)
+
+newlist =  ' '.join(check)
+print(newlist)
+'''
