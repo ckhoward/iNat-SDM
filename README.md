@@ -1,8 +1,7 @@
 # iNaturalist SDM 
 
 System Requirements:
-    Python 3.6
-    R 
+    Python 3.6, R 
     
 
 1. Download the Observations dump from http://www.inaturalist.org/observations/gbif-observations-dwca.zip This will alleviate some of the online calls to the iNaturalist server, ensuring that the server will not be overloaded by get requests for additional data. Unzip package and place observations.csv onto the designated folder where all data will be stored (GOTCHA.. do NOT place of desktop) (we focused our analysis to this download, due to the response we received from iNat. 
