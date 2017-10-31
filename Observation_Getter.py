@@ -9,20 +9,20 @@ from IPython.display import display
 import time
 
 
-class obs_grabber:
+class ObsGrabber:
     '''
         Grabs the observations for a specific species (with the taxonomy id) and a request delta. The request delta
         is the time in seconds to wait inbetween each request. 
     
     '''
     
-    def __init__(self, request_delta=0, species_name=''):
+    def __init__(self, request_delta=0, species_name='', taxon_id=0):
         self.request_delta = request_delta
         self.species_name = species_name
-        return self
+        self.taxon_id = taxon_id
     
     
-    def get_observations_for_page(data):
+    def get_observations_for_page(self, data):
         '''
             This is a private method for the purpose of grabbing the observation list from the 
             given data.
@@ -38,22 +38,23 @@ class obs_grabber:
     
         for i in data:
             specific_obs = i
-        
-            d = {}
-            d["species name"] = self.species_name
-            d["year"] = specific_obs['observed_on_details']['year']
-            d["month"] = specific_obs['observed_on_details']['month']
-            d['lat'] = specific_obs['geojson']['coordinates'][1]
-            d['long'] = specific_obs['geojson']['coordinates'][0]
-            d['common name'] = specific_obs['taxon']['preferred common name']
-        
-            obs_lst.append(d)
+            
+            if specific_obs['geojson'] != None and len(specific_obs['geojson']) >= 2:
+                d = {}
+                d['taxonId'] = self.taxon_id
+                d["species name"] = self.species_name
+                d["year"] = specific_obs['observed_on_details']['year']
+                d["month"] = specific_obs['observed_on_details']['month']
+                d['latitude'] = specific_obs['geojson']['coordinates'][1]
+                d['longitude'] = specific_obs['geojson']['coordinates'][0]
+                #d['common name'] = specific_obs['taxon']['preferred common name']
+                obs_lst.append(d)
 
     
         return obs_lst
     
         
-    def get_count_one_month(id_no_lst, month, year):
+    def get_count_one_month(self, id_no_lst, month, year):
         '''
         This will count the number of observations in a particular query.
         Generally should be unused.
@@ -66,7 +67,7 @@ class obs_grabber:
 
 
     
-    def get_all_obs_for_id(idno, month, year):
+    def get_all_obs_for_id(self, idno, month, year):
         '''
             This method finds all of the observations for one month and returns a list of dictionaries 
             that contains the associated information mapped to the keyword that was found in the json.
@@ -98,7 +99,7 @@ class obs_grabber:
         while(len(data['results']) > 0):
             
             
-            obs_out = obs_grabber.get_observations_for_page(data['results'])
+            obs_out = self.get_observations_for_page(data['results'])
             
             for i in obs_out:
                 taxon_lst.append(i)
@@ -117,7 +118,10 @@ class obs_grabber:
             # Limit the number of calls to prevent blacklisting
             time.sleep(self.request_delta)
         
-        return {idno : taxon_lst}
+            
+        
+        
+        return taxon_lst
 
     
 
