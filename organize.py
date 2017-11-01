@@ -6,13 +6,18 @@ month_list=['01','02','03','04','05','06','07','08','09','10','11','12','all']
 
 def get_organized(file):
 	file=open(file, 'r')
-	for line in file:
-		line=line.split()
-		names = ' '.join(line[1:])
-		taxon_dict[line[0]]=names
-		taxonID.append(line[0])
+	with open('taxon_list.csv','w') as csv_file:
+		csvwriter = csv.writer(csv_file, delimiter=',')
+		for line in file:
+			line=line.split()
+			names = ' '.join(line[1:])
+			taxon_dict[line[0]]=names
+			taxonID.append(line[0])
+			csvwriter.writerow([line[0],names])
+			
 	file.close()
 	return (taxon_dict, taxonID)
+
 hello = get_organized('taxon_list.txt')
 data_dict={}
 def get_data(filename):
