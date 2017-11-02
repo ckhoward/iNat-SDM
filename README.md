@@ -16,10 +16,14 @@ This application provides a full data pipeline for getting and cleaning iNatural
  * Get Jeff Oliver's SDM with ```clone https://github.com/jcoliver/ebutterfly-sdm.git```
  * Get this program with ```clone https://github.com/ckhoward/ebutterfly-sdm.git```
 
-
 2. Get your data
- * If downloading [GBIF Observations](http://www.inaturalist.org/observations/gbif-observations-dwca.zip), unzip the downloaded file, and move observations.csv into the directory ebutterfly-sdm/scripts/data/ (warning: many input files will be generated here)
- * If using updater.py and observation_getter.py
+ * If downloading [GBIF Observations](http://www.inaturalist.org/observations/gbif-observations-dwca.zip), unzip the downloaded file, and move observations.csv into the directory ebutterfly-sdm/data/ (warning: many input files will be generated here)
+ * If using updater.py and observation_getter.py..
+
+3. Organize your files
+ * Place inat_request.ipynb into the directory ebutterfly-sdm/ (this notebook will act as command and control)
+ * Place organize.py into the directory ebutterfly-sdm/scripts/data/
+ * Move taxon_list.txt from ebutterfly-sdm/data/gbif/ to ebutterfly-sdm/data/inaturalist
 
 3. Organize your files
  * Place inat_request.ipynb into the directory ebutterfly-sdm/scripts/ (this notebook will act as command and control)
@@ -43,7 +47,7 @@ Navigate to the header **Running the R Scripts through Bash**, then find the blo
 
     for id in "${ids[@]}"; do
         for month in "${months[@]}"; do
-            Rscript --vanilla run-sdm.R data/inaturalist/$id-$month-iNaturalist.txt $id-$month output/
+            Rscript --vanilla scripts/run-sdm.R data/inaturalist/$id-$month-iNaturalist.txt $id-$month output/
         done
     done
     end=$(date +%s.%N)    
