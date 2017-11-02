@@ -12,13 +12,14 @@ This application provides a full data pipeline for getting and cleaning iNatural
 
 ## Getting started:
 
-1. Get your data
- * If downloading [GBIF Observations](http://www.inaturalist.org/observations/gbif-observations-dwca.zip), unzip the downloaded file, and move observations.csv into the directory ebutterfly-sdm/scripts/data/ (warning: many input files will be generated here)
- * If using updater.py and observation_getter.py
-
-2. Clone the required projects
+1. Clone the required projects
  * Get Jeff Oliver's SDM with ```clone https://github.com/jcoliver/ebutterfly-sdm.git```
  * Get this program with ```clone https://github.com/ckhoward/ebutterfly-sdm.git```
+
+
+2. Get your data
+ * If downloading [GBIF Observations](http://www.inaturalist.org/observations/gbif-observations-dwca.zip), unzip the downloaded file, and move observations.csv into the directory ebutterfly-sdm/scripts/data/ (warning: many input files will be generated here)
+ * If using updater.py and observation_getter.py
 
 3. Organize your files
  * Place inat_request.ipynb into the directory ebutterfly-sdm/scripts/ (this notebook will act as command and control)
