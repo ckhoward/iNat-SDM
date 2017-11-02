@@ -13,7 +13,7 @@ This application provides a full data pipeline for getting and cleaning iNatural
 ## Getting started:
 
 1. Get your data
- * If downloading [GBIF Observations](http://www.inaturalist.org/observations/gbif-observations-dwca.zip), unzip the downloaded file, and move observations.csv into the directory ebutterfly-sdm/scripts/data/ (warning: many input files will be generated here)
+ * If downloading [GBIF Observations](http://www.inaturalist.org/observations/gbif-observations-dwca.zip), unzip the downloaded file, and move observations.csv create and place into the directory ebutterfly-sdm/scripts/data/ (warning: many input files will be generated here)
  * If using updater.py and observation_getter.py
 
 2. Clone the required projects
