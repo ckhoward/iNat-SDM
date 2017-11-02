@@ -22,12 +22,12 @@ This application provides a full data pipeline for getting and cleaning iNatural
 
 3. Organize your files
  * Place inat_request.ipynb into the directory ebutterfly-sdm/ (this notebook will act as command and control)
- * Place organize.py into the directory ebutterfly-sdm/scripts/data/
+ * Place organize.py into the directory ebutterfly-sdm/data/
  * Move taxon_list.txt from ebutterfly-sdm/data/gbif/ to ebutterfly-sdm/data/inaturalist
 
 3. Organize your files
- * Place inat_request.ipynb into the directory ebutterfly-sdm/scripts/ (this notebook will act as command and control)
- * Place organize.py into the directory ebutterfly-sdm/scripts/data/
+ * Place inat_request.ipynb into the directory ebutterfly-sdm/ (this notebook will act as command and control)
+ * Place organize.py into the directory ebutterfly-sdm/data/
  * Move taxon_list.txt from ebutterfly-sdm/data/gbif/ to ebutterfly-sdm/scripts/data/inaturalist/
 
 ## How to use:
