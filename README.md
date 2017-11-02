@@ -27,10 +27,6 @@ Or you can Download a pre-analysis virtual image containing all of the system re
  * Place organize.py into the directory ebutterfly-sdm/data/
  * Move taxon_list.txt from ebutterfly-sdm/data/gbif/ to ebutterfly-sdm/data/inaturalist
 
-3. Organize your files
- * Place inat_request.ipynb into the directory ebutterfly-sdm/ (this notebook will act as command and control)
- * Place organize.py into the directory ebutterfly-sdm/data/
- * Move taxon_list.txt from ebutterfly-sdm/data/gbif/ to ebutterfly-sdm/scripts/data/inaturalist/
 
 ## How to use:
 Run organize.py with ```python organize.py``` from the command line. This script:
