@@ -7,7 +7,7 @@ This application provides a full data pipeline for getting and cleaning iNatural
 ![input output](https://github.com/ckhoward/iNat-SDM/blob/master/imgs/inputoutput.jpg?raw=true "Input to output")
 
 ## System Requirements:
-    Python 3.6, R, Git
+    Python 3.6, R, Git, Anaconda
 
 
 ## Getting started:
