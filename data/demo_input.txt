@@ -1,0 +1,5 @@
+date1 7 1 2017
+date2 9 1 2017
+call_rate .01
+out_file ../data/demo_out.csv
+specific_species Epargyreus clarus
