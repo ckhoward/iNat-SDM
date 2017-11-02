@@ -138,5 +138,4 @@ def main():
     write_to_csv(lst_all_taxon_obs, 'out.csv')
     
     
-
 main()
