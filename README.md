@@ -7,16 +7,16 @@ This application provides a full data pipeline for getting and cleaning iNatural
 ![input output](https://github.com/ckhoward/iNat-SDM/blob/master/imgs/inputoutput.jpg?raw=true "Input to output")
 
 ## System Requirements:
-    Python 3.6, R, Git, Anaconda(install as Admin), Bash on Ubuntu,
-    R packages: dismo, sp, raster, maptools
-    
-    [Install Ubuntu Bash on Windows](https://msdn.microsoft.com/en-us/commandline/wsl/install-win10)
-    [Install R on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-16-04-2)
-    Install R Packages by typing the following into Bash:
-    1. R
-    2. install.packages('raster')
-    3. install packages('sp')
-    4. *repeat for packages 'dismo' and 'maptools'
+Python 3.6, R, Git, Anaconda(install as Admin), Bash on Ubuntu,
+R packages: dismo, sp, raster, maptools
+
+[Install Ubuntu Bash on Windows](https://msdn.microsoft.com/en-us/commandline/wsl/install-win10)
+[Install R on Ubuntu 16.04](https://www.digitalocean.com/community/tutorials/how-to-install-r-on-ubuntu-16-04-2)
+Install R Packages by typing the following into Bash:
+1. R
+2. install.packages('raster')
+3. install packages('sp')
+4. *repeat for packages 'dismo' and 'maptools'
     
     
 
