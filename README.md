@@ -22,9 +22,12 @@ Install R Packages by typing the following into Bash:
 5. install.packages('dismo')
     
 
-Or you can Download a pre-analysis virtual image containing all of the system requirements, all of the project, file paths, and code for you. all you have to do is start from ## How To Use:      https://drive.google.com/open?id=0B6oYWB4V910SX3lNTXZpU01iNUE
+Or you can Download a pre-analysis virtual image containing all of the system requirements, all of the project, file paths, and code for you, all you have to do is start from ## How To Use: 
+
+VM Link: https://drive.google.com/open?id=0B6oYWB4V910SX3lNTXZpU01iNUE
 
 VM Username: User
+
 VM Password: Butterfly (this is the same for sudo in Bash)
 
 ## Getting started:
