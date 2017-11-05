@@ -38,7 +38,6 @@ VM Password: Butterfly (this is the same for sudo in Bash)
 
 2. Get your data
  * If downloading [GBIF Observations](http://www.inaturalist.org/observations/gbif-observations-dwca.zip), unzip the downloaded file, and move observations.csv into the directory ebutterfly-sdm/data/ (warning: many input files will be generated here)
- * If using updater.py and observation_getter.py..
 
 3. Organize your files
  * Place inat_request.ipynb into the directory ebutterfly-sdm/ (this notebook will act as command and control)
