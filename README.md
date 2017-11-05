@@ -24,7 +24,7 @@ Install R Packages by typing the following into Bash:
 
 Or you can Download a pre-analysis virtual image containing all of the system requirements, all of the project, file paths, and code for you, all you have to do is start from ## How To Use: 
 
-VM Link: https://drive.google.com/open?id=0B6oYWB4V910SX3lNTXZpU01iNUE
+VM Link: https://drive.google.com/file/d/0BxVqlUplrcsfalhDZlBxWHdIYjQ/view?usp=sharing
 
 VM Username: User
 
@@ -33,8 +33,8 @@ VM Password: Butterfly (this is the same for sudo in Bash)
 ## Getting started:
 
 1. Clone the required projects
- * Get Jeff Oliver's SDM with ```clone https://github.com/jcoliver/ebutterfly-sdm.git```
- * Get this program with ```clone https://github.com/ckhoward/ebutterfly-sdm.git```
+ * Get Jeff Oliver's SDM with ```git clone https://github.com/jcoliver/ebutterfly-sdm.git```
+ * Get this program with ```git clone https://github.com/ckhoward/ebutterfly-sdm.git```
 
 2. Get your data
  * If downloading [GBIF Observations](http://www.inaturalist.org/observations/gbif-observations-dwca.zip), unzip the downloaded file, and move observations.csv into the directory ebutterfly-sdm/data/ (warning: many input files will be generated here)
@@ -85,7 +85,7 @@ Notice that the IDs are hardcoded. We know this is not ideal and are working on 
 
 #### Data integrity:
 
-From iNaturlist:
+From iNaturalist:
 > "Our export system is a bit flawed, though: if you alter the filters to get more than 10,000 records
 it may start omitting data, so the above techniques would probably be better. Plus, if you use GBIF,
 your [users] can benefit from even more records from museums and such."
